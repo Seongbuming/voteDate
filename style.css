@@ -12,6 +12,11 @@ body {
 	margin: 1em auto 0 auto;
 }
 
+#first_step,
+#second_step {
+	border-top: none;
+}
+
 .step {
 	display: none;
 	background-color: #FFF;
