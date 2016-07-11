@@ -47,12 +47,17 @@ body {
 	margin: 0.2em;
 	text-align: left;
 	font-size: 1em;
-	border: 1px solid #CCC;
+	border: none;
 	padding: 1em;
+}
+#view_date p {
+	text-align: center;
 }
 #view_date a {
 	color: #AAA;
 	font-size: 0.8em;
+	white-space: nowrap;
+	word-wrap: normal;
 }
 
 #credit {
