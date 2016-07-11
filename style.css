@@ -1,0 +1,107 @@
+html {
+	font-family: Helvetica, 맑은 고딕, 돋움;
+}
+body {
+	font-size: 1em;
+	text-align: center;
+	margin: 0;
+}
+
+#contents {
+	max-width: 800px;
+	margin: 1em auto 0 auto;
+}
+
+.step {
+	display: none;
+	background-color: #FFF;
+	padding: 1.5em 0;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 800px;
+	max-height: 100%;
+	border-top: 1px solid #AAA;
+	border-bottom: 1px solid #AAA;
+}
+
+.step p {
+	font-size: 1.2em;
+	margin: 0 0 0.5em 0;
+	padding: 0 1em;
+}
+
+#view_date,
+#input_reason {
+	border-top: none;
+	opacity: 0;
+}
+
+#view_date div {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0.2em;
+	text-align: left;
+	font-size: 1em;
+	border: 1px solid #CCC;
+	padding: 1em;
+}
+#view_date a {
+	color: #AAA;
+	font-size: 0.8em;
+}
+
+#credit {
+	margin-top: 1em;
+	font-size: 0.8em;
+	color: #000;
+}
+
+div.input {
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+input, button {
+	background-color: #FFF;
+	border: 1px solid #000;
+	height: 2em;
+	vertical-align: bottom;
+}
+input {
+	width: 65%;
+	margin: 0 auto;
+	font-size: 1em;
+}
+button {
+	width: 25%;
+	font-size: 1em;
+}
+
+table {
+	width: 100%;
+	max-width: 700px;
+	margin: 0 auto;
+	table-layout: fixed;
+}
+td {
+	vertical-align: top;
+	text-align: center;
+	padding: 0.5em 0;
+}
+tr:first-child td {
+	font-weight: bold;
+}
+tr:nth-child(n+2) td {
+	cursor: Pointer;
+}
+td:first-child {
+	color: #AA0000;
+}
+td:last-child {
+	color: #0000AA;
+}
+td span {
+	font-size: 0.7em;
+	color: #555;
+}
