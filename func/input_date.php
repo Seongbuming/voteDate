@@ -4,11 +4,9 @@ session_start();
 require("mysqli.php");
 
 $dates = split(",", $_POST['Dates']);
-$user = $mysqli->real_escape_string($_POST['Name']);
+$user = $_SESSION['User'];
 $reason = $mysqli->real_escape_string($_POST['Reason']);
 $ip = $_SERVER['REMOTE_ADDR'];
-
-$_SESSION['User'] = $user;
 
 foreach($dates as $date) {
 	$date = $mysqli->real_escape_string($date);

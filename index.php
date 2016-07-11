@@ -81,12 +81,34 @@ else {
 							if($('input.name').val().length == 0)
 								alert("이름을 입력하세요.");
 							else {
-								$('#contents').fadeTo('slow', 0, function() {
-									$('#first_step').css('display', 'none');
-									$('#second_step').css('display', 'block');
+								$('input.name').prop('disabled', true);
+								$('button.next').prop('disabled', true);
 
-									step++;
-									$('#contents').fadeTo('slow', 1, function() { });
+								$('#login').css('display', 'block');
+								$('#login').fadeTo('slow', 0.7, function() {
+									$.ajax({
+										type: "post",
+										url: "func/session_login.php",
+										cache: false,
+										data: {
+											Name: $('input.name').val()
+										},
+										success: function(data) {
+											var result = data.split('|');
+											if(!result[0])
+												alert(result[1]);
+											else
+												$('#login').fadeTo('slow', 0, function() {
+													$('#contents').fadeTo('slow', 0, function() {
+														$('#first_step').css('display', 'none');
+														$('#second_step').css('display', 'block');
+
+														step++;
+														$('#contents').fadeTo('slow', 1, function() { });
+													});
+												});
+										}
+									});
 								});
 							}
 							break;
@@ -106,7 +128,6 @@ else {
 									url: "func/input_date.php",
 									cache: false,
 									data: {
-										Name: getUserName(),
 										Dates: post_dates,
 										Reason: post_reason
 									},
@@ -259,6 +280,12 @@ for($i = 0; ($i % 7 != 0 || $date < $end_of_date); $i++) {
 
 			<div id="credit">
 				<p>Copyright ⓒ2016 서성범. All rights reserved.</p>
+			</div>
+		</div>
+
+		<div id="login">
+			<div id="login_msg">
+				세션 로그인 처리중입니다.
 			</div>
 		</div>
 	</body>
