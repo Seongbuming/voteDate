@@ -165,11 +165,11 @@ else {
 								view_date_html += "\t\t\t\t</div>\n";
 							}
 
-						if(datecnt == 0 || view_date_html_cnt == 0)
+						if($('#view_date').css('display') != 'none' && (datecnt == 0 || view_date_html_cnt == 0))
 							$('#view_date').fadeTo('fast', 0, function() {
 								$('#view_date').css('display', 'none');
 							});
-						if(datecnt == 0) {
+						if($('#input_reason').css('display') != 'none' && datecnt == 0) {
 							$('#input_reason').fadeTo('fast', 0, function() {
 								$('#input_reason').css('display', 'none');
 							});
