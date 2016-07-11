@@ -43,10 +43,8 @@ for($i = 0; $i < $end_of_date+1; $i++) {
 for($i = 0; $row = $sql_voteddata->fetch_array(); $i++) {
 	$date = $row['Date_'];
 	$votecnt[$date]++;
-	printf("/* %s */\n", $row['User']);
 	if(strpos($votedusers[$date], $row['User']) === false) {
 		$votedusers[$date] .= sprintf("%s<br />", $row['User']);
-		printf("// %d|%s\n", $date, $votedusers[$date]);
 	}
 ?>
 			voteddata[<?=$i?>] = {
@@ -56,8 +54,6 @@ for($i = 0; $row = $sql_voteddata->fetch_array(); $i++) {
 			};
 <?php
 }
-/*for($i = 0; $i < $end_of_date+1; $i++)
-	$votedusers[$i] = substr($votedusers[$i], 0, -1);*/
 ?>
 
 			$(document).ready(function() {
@@ -97,16 +93,18 @@ else {
 											var result = data.split('|');
 											if(!result[0])
 												alert(result[1]);
-											else
+											else {
 												$('#login').fadeTo('slow', 0, function() {
+													$('#login').css('display', 'none');
 													$('#contents').fadeTo('slow', 0, function() {
 														$('#first_step').css('display', 'none');
 														$('#second_step').css('display', 'block');
 
-														step++;
+														step = 2;
 														$('#contents').fadeTo('slow', 1, function() { });
 													});
 												});
+											}
 										}
 									});
 								});
