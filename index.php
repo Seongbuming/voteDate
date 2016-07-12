@@ -91,16 +91,17 @@ else {
 										},
 										success: function(data) {
 											var result = data.split('|');
-											if(!result[0])
+											if(result[0] == 0)
 												alert(result[1]);
 											else {
 												$('#login').fadeTo('slow', 0, function() {
 													$('#login').css('display', 'none');
 													$('#contents').fadeTo('slow', 0, function() {
+														step = 2;
+
 														$('#first_step').css('display', 'none');
 														$('#second_step').css('display', 'block');
-
-														step = 2;
+														$('button.next').prop('disabled', false);
 														$('#contents').fadeTo('slow', 1, function() { });
 													});
 												});
@@ -131,7 +132,7 @@ else {
 									},
 									success: function(data) {
 										var result = data.split('|');
-										if(!result[0])
+										if(result[0] == 0)
 											alert(result[1]);
 										else
 											window.location.reload();
